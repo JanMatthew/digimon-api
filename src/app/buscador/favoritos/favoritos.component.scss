@@ -1,0 +1,150 @@
+@import "../../../styles/variables";
+
+@mixin theme-colors($bg-color, $card-bg, $text-color, $border-color) {
+  background: linear-gradient(145deg, $card-bg, $bg-color);
+  color: $text-color;
+  border: 2px solid $border-color;
+}
+
+@mixin button-style($bg, $hover, $text-color) {
+  background: $bg;
+  color: $text-color;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Press Start 2P', cursive;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+
+  &:hover {
+    background: $hover;
+    box-shadow: 0px 0px 8px rgba($hover, 0.8);
+    transform: scale(1.1);
+  }
+}
+
+.favoritos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 100vh;
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(255, 204, 0, 0.8);
+}
+
+.favCard {
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  width: 250px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.5);
+  background-color: white;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.9);
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .favImg {
+    width: 150px;
+    height: 150px;
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .card-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+  }
+}
+
+.light-theme {
+  h1{
+    color: $primary-color;
+  }
+  div:first-child{
+    background-color: white;
+  }
+  .favoritos-container {
+    background-color: #ffffff;
+  }
+
+  .favCard {
+    @include theme-colors(#ffffff, #f8f9fa, #333, $primary-color);
+  }
+
+  .btn-warning {
+    @include button-style($button-bg, $button-hover, #fff);
+  }
+
+  .eliminar {
+    @include button-style(#ff4444, #cc0000, #fff);
+  }
+}
+
+.dark-theme {
+  h1{
+    color: $dark-primary-color;
+  }
+  div:first-child{
+    background-color: $dark-bg-color;
+  }
+  .favoritos-container {
+    background-color: #0d1b2a;
+  }
+
+  .favCard {
+    @include theme-colors(#0d1b2a, #142c44, #ffffff, $primary-color);
+  }
+
+  .btn-warning {
+    @include button-style($button-bg, $button-hover, #fff);
+  }
+
+  .eliminar {
+    @include button-style(#ff4444, #cc0000, #fff);
+  }
+}
+.favs-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+@media (max-width: 768px) {
+  .favoritos-container {
+    padding: 10px;
+  }
+
+  .favCard {
+    width: 90%;
+    max-width: 350px;
+  }
+}

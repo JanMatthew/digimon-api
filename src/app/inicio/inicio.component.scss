@@ -1,0 +1,312 @@
+@import "../../styles/variables";
+$bc:background;
+$bc-cl : background-color;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@mixin container-style($bg, $text) {
+  #{$bc-cl}: $bg;
+  color: $text;
+  padding: 20px;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow-x: hidden;
+  @content;
+}
+
+@mixin api-intro-style($bg, $text) {
+  #{$bc}: $bg;
+  color: $text;
+  padding: 30px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+@mixin api-box($bg, $text, $primary) {
+  #{$bc}: $bg;
+  color: $text;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
+  text-align: left;
+  h2 {
+    color: $primary;
+    text-align: center;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      font-size: 1.1rem;
+      margin: 10px 0;
+    }
+  }
+  pre {
+    #{$bc}: $code-bg;
+    padding: 10px;
+    border-radius: 5px;
+    color: $code-text;
+    overflow-x: auto;
+  }
+}
+
+@mixin button-style($bg, $text, $hover) {
+  #{$bc}: $bg;
+  color: $text;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  &:hover {
+    #{$bc}: $hover;
+    box-shadow: 0px 0px 8px rgba(255, 102, 0, 0.8);
+    transform: scale(1.05);
+  }
+}
+
+@mixin login-style($overlay, $modal, $text, $primary, $btnBg, $btnHover) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  #{$bc}: $overlay;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  .login-content {
+    #{$bc}: $modal;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-in-out;
+    position: relative;
+    h2 {
+      color: $primary;
+      margin-bottom: 15px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    input {
+      #{$bc}: #0d1b2a;
+      color: $text;
+      border: 1px solid $primary;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 1rem;
+      &::placeholder {
+        color: #cccccc;
+      }
+      &:focus {
+        outline: none;
+        border-color: $btnHover;
+      }
+    }
+    .btn-warning {
+      @include button-style($btnBg, $text, $btnHover);
+    }
+  }
+  .close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 22px;
+    color: $text;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      color: $primary;
+      transform: scale(1.2);
+    }
+  }
+}
+
+@mixin explore-style($bg, $text) {
+  color: $text;
+  padding: 12px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.light-theme {
+  @include container-style($bg-color, $text-color) {
+  }
+  .api-intro {
+    @include api-intro-style($bg-color, $text-color);
+  }
+  .api-info, .api-usage {
+    @include api-box($card-bg, $text-color, $primary-color);
+  }
+  .btn {
+    @include button-style($button-bg, $text-color, $button-hover);
+  }
+  .login {
+    @include login-style($bg-overlay, $modal-bg, $text-color, $primary-color, $button-bg, $button-hover);
+  }
+  .explore {
+    @include explore-style($secondary-color, $text-color);
+  }
+  .btn-copy {
+    display: block;
+    margin: 20px auto;
+  }
+}
+
+.dark-theme {
+  @include container-style($dark-bg-color, $dark-text-color) {
+  }
+  .api-intro {
+    @include api-intro-style($dark-bg-color, $dark-text-color);
+  }
+  .api-info, .api-usage {
+    @include api-box($dark-card-bg, $dark-text-color, $dark-primary-color);
+  }
+  .btn {
+    @include button-style($dark-button-bg, $dark-text-color, $dark-button-hover);
+  }
+  .login {
+    @include login-style($bg-overlay, $dark-modal-bg, $dark-text-color, $dark-primary-color, $dark-button-bg, $dark-button-hover);
+  }
+  .explore {
+    @include explore-style($secondary-color, $dark-text-color);
+  }
+  .btn-copy {
+    display: block;
+    margin: 20px auto;
+  }
+}
+
+.video-container {
+  width: 100%;
+  margin-top: 20px;
+  iframe {
+    width: 100%;
+    height: 35vh;
+    border: none;
+  }
+}
+
+.digimon-image {
+  margin-top: 20px;
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: changeImage 6s infinite alternate;
+}
+@keyframes changeImage {
+  0% { background-image: url('/assets/patamon.png'); }
+  33.33% { background-image: url('/assets/angemon.webp'); }
+  66.66% { background-image: url('/assets/MagnaAngemon.webp'); }
+  100% { background-image: url('/assets/seraphimon.webp'); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes maskAnim {
+  0% { mask-image: url('/assets/circulo.png'); }
+  25% { mask-image: url('/assets/triangulo.png'); }
+  50% { mask-image: url('/assets/star.png'); }
+  75% { mask-image: url('/assets/cruz.png'); }
+}
+
+.container {
+  overflow-x: hidden;
+}
+.group{
+  width: 60vw;
+  filter: grayscale(100%);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  transition: all 0.6s ease-in-out;
+  &:hover{
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+}
+.survive{
+  width: 60vw;
+  max-width: 400px;
+  margin: 20px auto;
+  display: block;
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: multiply;
+  clip-path: polygon(30% 0%, 100% 50%, 70% 100%, 0% 50%);
+  filter: brightness(2) contrast(3);
+  transition: transform 0.6s ease, filter 0.6s ease;
+  &:hover {
+    transform: scale(1.05);
+    filter: brightness(1.0) contrast(1.0);
+    mix-blend-mode: exclusion;
+  }
+}
+.dios{
+  margin-top: 20px;
+  width: 60vw;
+  background-size: cover;
+  background-position: center;
+  animation: changeImage 6s infinite alternate, maskAnim 6s infinite alternate steps(1);
+  mix-blend-mode: multiply;
+  filter: brightness(1.2) contrast(1.1);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+      padding: 10px;
+  }
+  .api-intro {
+    padding: 20px;
+    font-size: 0.9rem;
+  }
+  .api-info, .api-usage {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+  .btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  .login-content {
+    width: 90%;
+    max-width: 280px;
+  }
+  .explore {
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
+}

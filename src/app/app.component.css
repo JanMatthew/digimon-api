@@ -1,0 +1,145 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f4f4f4;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 50px;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out;
+}
+.navbar a {
+  text-decoration: none;
+  color: #000000;
+  border-radius: 5px;
+  height: 30px;
+  text-align: center;
+  width: 80px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar .profile-menu {
+  position: relative;
+  display: inline-block;
+}
+.navbar .profile-menu .profile-icon {
+  color: #333;
+  cursor: pointer;
+  font-size: 30px;
+  transition: transform 0.2s;
+}
+.navbar .profile-menu .profile-icon:hover {
+  transform: scale(1.1);
+}
+.navbar .profile-menu .dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid rgb(229.5, 229.5, 229.5);
+  border-radius: 5px;
+  list-style: none;
+  padding: 10px;
+  min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+.navbar .profile-menu .dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+  color: #333;
+  transition: background 0.3s ease-in-out;
+}
+.navbar .profile-menu .dropdown-menu li:hover {
+  background: #f0f0f0;
+}
+
+.dark-navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #333333;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 50px;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out;
+}
+.dark-navbar a {
+  text-decoration: none;
+  color: #eeeeee;
+  border-radius: 5px;
+  height: 30px;
+  text-align: center;
+  width: 80px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dark-navbar .profile-menu {
+  position: relative;
+  display: inline-block;
+}
+.dark-navbar .profile-menu .profile-icon {
+  color: #fff;
+  cursor: pointer;
+  font-size: 30px;
+  transition: transform 0.2s;
+}
+.dark-navbar .profile-menu .profile-icon:hover {
+  transform: scale(1.1);
+}
+.dark-navbar .profile-menu .dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #1a1a1a;
+  border: 1px solid rgb(0.5, 0.5, 0.5);
+  border-radius: 5px;
+  list-style: none;
+  padding: 10px;
+  min-width: 150px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+.dark-navbar .profile-menu .dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.3s ease-in-out;
+}
+.dark-navbar .profile-menu .dropdown-menu li:hover {
+  background: #333;
+}
+
+.toggle-btn {
+  background-color: #ff6600;
+  color: #000000;
+  border: none;
+  padding: 8px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.toggle-btn:hover {
+  background-color: #ff4500;
+}
+
+.dark-toggle-btn {
+  background-color: #b897ff;
+  color: #eeeeee;
+  border: none;
+  padding: 8px 15px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.dark-toggle-btn:hover {
+  background-color: rgb(218.8173076923, 202, 255);
+}
+
+/*# sourceMappingURL=app.component.css.map */

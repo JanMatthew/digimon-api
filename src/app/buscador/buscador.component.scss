@@ -1,0 +1,573 @@
+@import "../../styles/variables";
+@mixin container-style($bg, $text) {
+  background-color: $bg;
+  color: $text;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  @content;
+}
+
+@mixin digital-shadow($color) {
+  box-shadow: 0px 0px 15px rgba($color, 0.8);
+}
+
+@mixin custom-border($color) {
+  border: 2px solid $color;
+  border-radius: 10px;
+}
+
+@mixin button-style($bg, $hover-bg, $text) {
+  background: $bg;
+  color: $text;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border: none;
+  width: 50%;
+  &:hover {
+    background: $hover-bg;
+    transform: scale(1.05);
+    @include digital-shadow($hover-bg);
+  }
+}
+
+@mixin api-intro-style($bg, $text) {
+  background: $bg;
+  color: $text;
+  padding: 30px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+@mixin api-box($bg, $text, $primary) {
+  background: $bg;
+  color: $text;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
+  text-align: left;
+  h2 {
+    color: $primary;
+    text-align: center;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      font-size: 1.1rem;
+      margin: 10px 0;
+    }
+  }
+  pre {
+    background: $code-bg;
+    padding: 10px;
+    border-radius: 5px;
+    color: $code-text;
+  }
+}
+
+@mixin login-style($overlay, $modal, $text, $primary, $btnBg, $btnHover) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $overlay;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  .login-content {
+    background: $modal;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s ease-in-out;
+    position: relative;
+    h2 {
+      color: $primary;
+      margin-bottom: 15px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    input {
+      background: #0d1b2a;
+      color: $text;
+      border: 1px solid $primary;
+      padding: 10px;
+      border-radius: 6px;
+      font-size: 1rem;
+      &::placeholder {
+        color: #cccccc;
+      }
+      &:focus {
+        outline: none;
+        border-color: $btnHover;
+      }
+    }
+    .btn-warning {
+      @include button-style($btnBg, $btnHover, $text);
+    }
+  }
+  .close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    font-size: 22px;
+    color: $text;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      color: $primary;
+      transform: scale(1.2);
+    }
+  }
+}
+
+@mixin explore-style($bg, $text) {
+  background: $bg;
+  color: $text;
+  padding: 12px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: 0.3s;
+  &:hover {
+    background: $text;
+    transform: scale(1.1);
+  }
+}
+
+.light-theme {
+  .buscador-container {
+    background-color: white;
+    @include container-style($bg-color, $text-color);
+  }
+  h1 {
+    text-align: center;
+    color: $primary-color;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px 4px rgba(255,204,0,0.8);
+    margin-bottom: 20px;
+  }
+  .search-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    @include custom-border($primary-color);
+    background: $card-bg;
+    margin-bottom: 20px;
+  }
+  .search-input {
+    width: 70%;
+    padding: 10px;
+    background: $input-bg;
+    border: 2px solid $input-border;
+    color: $input-text;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+    text-align: center;
+    &:focus {
+      border-color: $input-border;
+      @include digital-shadow($input-border);
+    }
+  }
+  .search-btn {
+    @include button-style($button-bg, $button-hover, $text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .digimon-card {
+    background: linear-gradient(145deg, $card-bg, $bg-color);
+    color: $text-color;
+    @include custom-border($primary-color);
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    @include digital-shadow($primary-color);
+    .digivice {
+      width: 150px;
+      background-repeat: no-repeat;
+      background-size: 30%;
+      background-position: center;
+      margin-bottom: 10px;
+    }
+    .card-header {
+      background: transparent;
+      border-bottom: none;
+    }
+    .card-body {
+      h3, h4 {
+        color: $primary-color;
+      }
+    }
+    .fields-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+      .field-item {
+        text-align: center;
+        img {
+          width: 50px;
+          height: auto;
+        }
+      }
+    }
+  }
+  .btn-warning {
+    @include button-style($button-bg, $button-hover, $text-color);
+  }
+  .buttons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-links {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    .btn-outline-light {
+      @include button-style(transparent, $primary-color, $primary-color);
+      border: 2px solid $primary-color;
+      &:hover {
+        color: $bg-color;
+      }
+    }
+  }
+  label {
+    color: black;
+  }
+  select {
+    background-color: orangered;
+    border-radius: 10px;
+    color: white;
+    padding: 5px 10px;
+    font-size: 1rem;
+  }
+  .btn-copy {
+    display: block;
+    margin: 20px auto;
+  }
+}
+
+.dark-theme {
+  .buscador-container {
+    @include container-style($dark-bg-color, $dark-text-color);
+  }
+  h1 {
+    text-align: center;
+    color: $dark-primary-color;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    margin-bottom: 20px;
+  }
+  .search-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    @include custom-border($dark-primary-color);
+    background: $dark-card-bg;
+    margin-bottom: 20px;
+  }
+  .search-input {
+    width: 70%;
+    padding: 10px;
+    background: $input-bg;
+    border: 2px solid $input-border;
+    color: black;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+    text-align: center;
+    &:focus {
+      border-color: $input-border;
+      @include digital-shadow($input-border);
+    }
+  }
+  .search-btn {
+    @include button-style($button-bg, $button-hover, $dark-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .digimon-card {
+    background: linear-gradient(145deg, $dark-card-bg, $dark-bg-color);
+    color: $dark-text-color;
+    @include custom-border($dark-primary-color);
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    @include digital-shadow($dark-primary-color);
+    .digivice {
+      width: 150px;
+      background-repeat: no-repeat;
+      background-size: 30%;
+      background-position: center;
+      margin-bottom: 10px;
+    }
+    .card-header {
+      background: transparent;
+      border-bottom: none;
+    }
+    .card-body {
+      h3, h4 {
+        color: $dark-primary-color;
+      }
+    }
+    .fields-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+      .field-item {
+        text-align: center;
+        img {
+          width: 50px;
+          height: auto;
+        }
+      }
+    }
+  }
+  .btn-warning {
+    @include button-style($button-bg, $button-hover, $dark-text-color);
+  }
+  .buttons {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-links {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    .btn-outline-light {
+      @include button-style(transparent, $dark-primary-color, $dark-primary-color);
+      border: 2px solid $dark-primary-color;
+      &:hover {
+        color: $dark-bg-color;
+      }
+    }
+  }
+  label {
+    color: white;
+  }
+  select {
+    background-color: orangered;
+    border-radius: 10px;
+    color: white;
+    padding: 5px 10px;
+    font-size: 1rem;
+  }
+  .btn-copy {
+    display: block;
+    margin: 20px auto;
+  }
+}
+
+.video-container {
+  width: 100%;
+  margin-top: 20px;
+  iframe {
+    width: 100%;
+    height: 35vh;
+    border: none;
+  }
+}
+
+.digimon-image {
+  margin-top: 20px;
+  img {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+}
+.pagination {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  label {
+    font-size: 1rem;
+    margin-right: 5px;
+  }
+
+  select {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid $input-border;
+    background: $input-bg;
+    color: $text-color;
+    font-size: 1rem;
+  }
+
+  button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    background: $button-bg;
+    color: $text-color;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 1rem;
+
+    &:hover:not(:disabled) {
+      background: $button-hover;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+.digimon-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.digimon-card {
+  flex: 1 1 250px;
+  max-width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+  overflow: auto;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  .search-container {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .search-input {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  .search-btn {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+  .digimon-card {
+    padding: 15px;
+    margin-top: 15px;
+  }
+  .btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+  .btn-copy {
+    margin: 15px auto;
+  }
+  .video-container iframe {
+    height: 30vh;
+  }
+}
+
+@media (max-width: 480px) {
+
+
+  h1 {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .search-container {
+    gap: 5px;
+    padding: 5px;
+  }
+  .search-input {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .search-btn {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+  .digimon-card {
+    padding: 10px;
+    margin-top: 10px;
+  }
+  .btn {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    width: 100%;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+  .video-container iframe {
+    height: 25vh;
+  }
+}
