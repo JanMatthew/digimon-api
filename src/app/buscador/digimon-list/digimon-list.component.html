@@ -1,0 +1,16 @@
+<div class="digimon-container">
+  <h1>Lista de Digimons</h1>
+
+  <div class="digimons">
+    <div class="digimon-card" *ngFor="let digimon of digimons">
+      <h4>{{ digimon.name }}</h4>
+      <img class="favImg" src="assets/digivice.png" [ngStyle]="{'background-image':'url(' + digimon.img + ')'}">
+      <button class="btn btn-warning mt-3" (click)="aynadirFav(digimon.name)">{{digimon.digiFav}}</button>
+      <a [routerLink]="['/detalles',digimon.name]" class="btn btn-warning mt-3">Detalles</a>
+    </div>
+  </div>
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="prevDisabled" class="btn">Prev</button>
+    <button (click)="nextPage()" [disabled]="nextDisabled" class="btn">Next</button>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="container api-intro" [ngClass]="isDarkMode ? 'dark-theme' : 'light-theme'">
+  <h1>Bienvenido a la API de Digimon</h1>
+  <p>Consulta todos los Digimon existentes y gestiona tu lista de favoritos.</p>
+  <button class="btn btn-primary" (click)="clickLogin()" *ngIf="!logged">Iniciar Sesión</button>
+
+
+  <div class="login" *ngIf="loginAbierto">
+    <div class="login-content">
+      <span class="close" (click)="clickLogin()">X</span>
+      <h2>Iniciar Sesión</h2>
+      <form>
+        <input #user placeholder="Username" type="text" class="form-control mb-2">
+        <input #pass placeholder="Password" type="password" class="form-control mb-2">
+        <button type="button" class="btn btn-warning w-100" (click)="iniciarSesion(user.value, pass.value)">Iniciar Sesión</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="api-info">
+    <h2>¿Qué puedes hacer con esta API?</h2>
+    <ul>
+      <li>🔎 Buscar Digimon por nombre, nivel, atributo, etc.</li>
+      <li>📜 Obtener información detallada de cada Digimon.</li>
+      <li>💾 Guardar tus favoritos para acceder rápidamente.</li>
+    </ul>
+  </div>
+
+  <div class="video-container">
+    <h2>Introducción a la API</h2>
+    <iframe src="https://www.youtube.com/embed/UXwunDD5Lm8?si=IanJHyJY4LdkhQ97"
+            title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
+      picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="explore">
+    <a href="/digimonlist" class="btn btn-explore">🔍 Explorar Digimon</a>
+  </div>
+  <img class="group" src="/assets/digimonGroup.webp">
+  <img class="survive" src="/assets/digimonSurvive.webp">
+  <img class="dios" src="/assets/dios.webp">
+  <div class="digimon-image">
+  </div>
+</div>

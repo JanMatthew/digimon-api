@@ -1,0 +1,222 @@
+.light-theme .card-body {
+  background: linear-gradient(145deg, #ffffff, rgb(229.5, 229.5, 229.5));
+  color: #000000;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+.light-theme .card-body h3, .light-theme .card-body h4 {
+  color: #000000;
+}
+
+.light-theme .card-header {
+  position: relative;
+  height: 60vh;
+  max-height: 400px;
+  background: #eaeaea;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+
+.light-theme .digivice {
+  width: 60vw;
+  max-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: center;
+}
+
+.light-theme .fields-container {
+  background: #f9f9f9;
+}
+
+.light-theme .field-item {
+  text-align: center;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 10px;
+  width: 120px;
+}
+.light-theme .field-item h5 {
+  color: #f4a261;
+  margin-bottom: 5px;
+}
+.light-theme .field-item img {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.light-theme .btn-warning {
+  background: #ff6600;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+}
+.light-theme .btn-warning:hover {
+  background: #ff4500;
+  transform: scale(1.05);
+}
+
+.dark-theme .card-body {
+  background: linear-gradient(145deg, #0d1b2a, rgb(0.9454545455, 1.9636363636, 3.0545454545));
+  color: #eeeeee;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+.dark-theme .card-body h3, .dark-theme .card-body h4 {
+  color: #eeeeee;
+}
+
+.dark-theme .card-header {
+  position: relative;
+  height: 60vh;
+  max-height: 400px;
+  background: #1a1a1a;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+
+.dark-theme .digivice {
+  width: 60vw;
+  max-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: center;
+}
+
+.dark-theme .fields-container {
+  background: #1c3b5a;
+}
+
+.dark-theme .field-item {
+  text-align: center;
+  padding: 10px;
+  background: #142c44;
+  border-radius: 10px;
+  width: 120px;
+}
+.dark-theme .field-item h5 {
+  color: #f4a261;
+  margin-bottom: 5px;
+}
+.dark-theme .field-item img {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.dark-theme .btn-warning {
+  background: #b897ff;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+}
+.dark-theme .btn-warning:hover {
+  background: rgb(149.1826923077, 100, 255);
+  transform: scale(1.05);
+}
+
+.fondoNegro {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 99;
+  position: fixed;
+}
+
+.linkImg {
+  position: relative;
+  color: white;
+  z-index: 101;
+  top: 0;
+}
+
+.card-body {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  margin-top: 0px !important;
+  height: 100vh;
+}
+
+.fields-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.field-item {
+  text-align: center;
+  padding: 10px;
+  background: #ffffff;
+  border-radius: 10px;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  min-width: 120px;
+  max-width: 150px;
+}
+.field-item h5 {
+  color: #f4a261;
+  margin-bottom: 5px;
+}
+.field-item img {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.dark-theme .field-item {
+  text-align: center;
+  padding: 10px;
+  background: #142c44;
+  border-radius: 10px;
+  width: 120px;
+}
+.dark-theme .field-item h5 {
+  color: #f4a261;
+  margin-bottom: 5px;
+}
+.dark-theme .field-item img {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=digimon-detalles.component.css.map */

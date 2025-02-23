@@ -1,0 +1,178 @@
+.favoritos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  height: 100vh;
+}
+
+h1 {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(255, 204, 0, 0.8);
+}
+
+.favCard {
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  width: 250px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.5);
+  background-color: white;
+}
+.favCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.9);
+}
+.favCard h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.favCard .favImg {
+  width: 150px;
+  height: 150px;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  margin: 0 auto;
+}
+.favCard .card-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.light-theme h1 {
+  color: #f4a261;
+}
+.light-theme div:first-child {
+  background-color: white;
+}
+.light-theme .favoritos-container {
+  background-color: #ffffff;
+}
+.light-theme .favCard {
+  background: linear-gradient(145deg, #f8f9fa, #ffffff);
+  color: #333;
+  border: 2px solid #f4a261;
+}
+.light-theme .btn-warning {
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Press Start 2P", cursive;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+.light-theme .btn-warning:hover {
+  background: #ff4500;
+  box-shadow: 0px 0px 8px rgba(255, 69, 0, 0.8);
+  transform: scale(1.1);
+}
+.light-theme .eliminar {
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Press Start 2P", cursive;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+.light-theme .eliminar:hover {
+  background: #cc0000;
+  box-shadow: 0px 0px 8px rgba(204, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.dark-theme h1 {
+  color: #b897ff;
+}
+.dark-theme div:first-child {
+  background-color: #1e1e1e;
+}
+.dark-theme .favoritos-container {
+  background-color: #0d1b2a;
+}
+.dark-theme .favCard {
+  background: linear-gradient(145deg, #142c44, #0d1b2a);
+  color: #ffffff;
+  border: 2px solid #f4a261;
+}
+.dark-theme .btn-warning {
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Press Start 2P", cursive;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+.dark-theme .btn-warning:hover {
+  background: #ff4500;
+  box-shadow: 0px 0px 8px rgba(255, 69, 0, 0.8);
+  transform: scale(1.1);
+}
+.dark-theme .eliminar {
+  background: #ff4444;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Press Start 2P", cursive;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+.dark-theme .eliminar:hover {
+  background: #cc0000;
+  box-shadow: 0px 0px 8px rgba(204, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.favs-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .favoritos-container {
+    padding: 10px;
+  }
+  .favCard {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+/*# sourceMappingURL=favoritos.component.css.map */

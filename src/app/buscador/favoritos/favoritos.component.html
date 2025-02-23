@@ -1,0 +1,15 @@
+<div [ngClass]="isDarkMode ? 'dark-theme' : 'light-theme'">
+  <div class="favoritos-container" [ngClass]="isDarkMode ? 'dark-theme' : 'light-theme'">
+    <div>
+      <h1>Favoritos</h1>
+      <div class="favs-list">
+        <div *ngFor="let fav of favsList" class="favCard">
+          <h4>{{fav.name}}</h4>
+          <img class="favImg" src="assets/digivice.png" [ngStyle]="{'background-image':'url(' + fav.img+')'}">
+          <a [routerLink]="['/detalles',fav.name]" class="btn btn-warning mt-3">Detalles</a>
+          <button class="eliminar" (click)="eliminarFav(fav.name)">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

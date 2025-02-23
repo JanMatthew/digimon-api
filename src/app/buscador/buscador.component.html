@@ -1,0 +1,54 @@
+<div [ngClass]="isDarkMode ? 'dark-theme' : 'light-theme'">
+  <div class="container buscador-container"  >
+    <h1 class="text-center">Buscador de Digimon</h1>
+    <div class="search-container">
+      <input #texto class="search-input" [type]="tipoSearch" [placeholder]="placeholderSearch">
+      <label for="filtros">
+        <span class="material-icons">filter_list</span>
+      </label>
+      <input (change)="activarFiltros($event)" id="filtros" type="checkbox">
+      <select class="tipoSelect" *ngIf="filtroActivo" [(ngModel)]="atributoSeleccionado">
+        <option *ngFor="let atributo of atributos" [value]="atributo.nombre"> <!--Bucle para introducir el option con todos los atributos posibles -->
+          {{ atributo.nombre }}
+        </option>
+      </select>
+      <button type="button" class="search-btn" [disabled]="buscarDis" (click)="busqueda(texto.value)">
+        {{ buscar }}
+      </button>
+    </div>
+    <div class="digimon-list">
+      <div *ngFor="let digimon of digimons" class="digimon-card card"> <!-- Bucle por todos los digimons listados -->
+        <div class="card-header text-center">
+          <img class="digivice" [ngStyle]="{'background-image':'url(' + digimon.img + ')'}" src="assets/digivice.png" alt="{{ digimon.name }} ">
+        </div>
+        <div class="card-body text-center">
+          <h3 class="card-title">Nombre: {{ digimon.name }}</h3>
+          <div class="buttons">
+            <button class="btn btn-warning mt-3" (click)="aynadirFav(digimon.name)">
+              {{ digimon.fav }}
+            </button>
+            <a [routerLink]="['/detalles', digimon.name]" class="btn btn-warning mt-3">Detalles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pagination text-center" *ngIf="pages">
+
+      <select id="pageSize" [(ngModel)]="pageSize" (change)="updatePageSize()">
+        <option [value]="10">10</option>
+        <option [value]="20">20</option>
+        <option [value]="50">50</option>
+        <option [value]="100">100</option>
+      </select>
+
+      <button (click)="prevPage()" [disabled]="prevDisabled" class="btn">
+        <- Prev
+      </button>
+      <button (click)="nextPage()" [disabled]="nextDisabled" class="btn">
+        Next ->
+      </button>
+    </div>
+
+
+  </div>
+</div>

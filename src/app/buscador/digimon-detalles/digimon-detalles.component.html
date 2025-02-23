@@ -1,0 +1,24 @@
+<div class="fondoNegro" *ngIf="fondoNegro">
+
+</div>
+<div [ngClass]="isDarkMode ? 'dark-theme' : 'light-theme'">
+<div class="card-body text-center">
+  <div class="card-header text-center">
+    <img class="digivice" src="assets/digivice.png" [ngStyle]="digivice" (mouseover)="aplicarEfecto()" (mouseleave)="quitarEfecto()">
+    <p *ngIf="fondoNegro" class="linkImg" (mouseover)="aplicarEfecto()" (mouseleave)="quitarEfecto()">{{ digimonImg }}</p>
+  </div>
+  <h3 class="card-title">Nombre: {{ digimonName }}</h3>
+  <h4 class="card-subtitle">Nivel: {{ digimonLevel }}</h4>
+  <h4 class="card-subtitle">Atributo/s: {{ digimonAttribute }}</h4>
+  <h4 class="card-subtitle">Tipo/s: {{ digimonType }}</h4>
+
+  <h4>Campo/s:</h4>
+  <div class="fields-container">
+    <div *ngFor="let field of fields" class="field-item">
+      <h5>{{ field.name }}</h5>
+      <img [src]="field.img">
+    </div>
+  </div>
+  <button class="btn btn-warning mt-3 " (click)="aynadirFav()">{{anyadir}}</button>
+</div>
+</div>

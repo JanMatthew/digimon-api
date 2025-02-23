@@ -1,0 +1,88 @@
+.digimon-container {
+  text-align: center;
+  background-color: #0d1b2a;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  color: #ffcc00;
+  font-family: "Press Start 2P", cursive;
+  text-shadow: 2px 2px 4px rgba(255, 204, 0, 0.8);
+  margin-bottom: 20px;
+}
+
+.digimons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.digimon-card {
+  background: linear-gradient(145deg, #142c44, #0d1b2a);
+  border: 2px solid #ffcc00;
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  width: 250px;
+  min-height: 350px;
+  max-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0px 0px 10px rgba(255, 204, 0, 0.5);
+}
+.digimon-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 15px rgba(255, 204, 0, 0.9);
+}
+.digimon-card h4 {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.digimon-card .favImg {
+  width: 150px;
+  height: auto;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  margin: 0 auto;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn {
+  background: #ff6600;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Press Start 2P", cursive;
+}
+.btn:hover {
+  background: #ff4500;
+  box-shadow: 0px 0px 8px rgba(255, 102, 0, 0.8);
+  transform: scale(1.1);
+}
+.btn:disabled {
+  background: #555555;
+  color: #999999;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/*# sourceMappingURL=digimon-list.component.css.map */
